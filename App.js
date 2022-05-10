@@ -8,12 +8,10 @@ export default function App() {
 
   const handleAddTask = () => {
     Keyboard.dismiss();
-    if(taskItems.length >= 8)
-      alert("Task List Full");
-    else {
+    if(taskItems.length < 8) {
       setTaskItems([...taskItems, task]);
       setTask(null);
-    }
+    } else alert("Task List Full");
   }
 
   const completeTask = (index) => {
