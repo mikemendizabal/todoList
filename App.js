@@ -8,8 +8,10 @@ export default function App() {
 
   const handleAddTask = () => {
     Keyboard.dismiss();
-    setTaskItems([...taskItems, task]);
-    setTask(null);
+    if(taskItems.length < 8) {
+      setTaskItems([...taskItems, task]);
+      setTask(null);
+    } else alert("Task List Full");
   }
 
   const completeTask = (index) => {
@@ -60,6 +62,7 @@ const styles = StyleSheet.create({
   sectionTitle: {
     fontSize: 24,
     fontWeight: 'bold',
+    color: 'blue',
   },
   writeTaskWrapper:{
     width: '100%',
@@ -73,6 +76,7 @@ const styles = StyleSheet.create({
     paddingHorizontal: 15,
     backgroundColor: '#FFF',
     borderRadius: 60,
+    borderColor: '#21BA45',
     borderWidth: 4,
     width: 250,
   },
@@ -83,11 +87,13 @@ const styles = StyleSheet.create({
     borderRadius: 60,
     justifyContent: 'center',
     alignItems: 'center',
+    borderColor: '#DB2828',
     borderWidth: 4,
   },
   addText:{
     fontSize: 24,
     fontWeight: 'bold',
+    color: '#DB2828',
   },
   items: {
     marginTop: 30,
